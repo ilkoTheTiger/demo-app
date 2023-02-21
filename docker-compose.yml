@@ -1,0 +1,24 @@
+services:
+    web:
+        image: ilkothetiger/bgapp-web
+        deploy:
+            replicas: 3
+        ports:
+            - 8080:80
+        volumes:
+            - "/home/vagrant/demo-app/web:/var/www/html:ro"
+        networks:
+            - app-network
+    db:
+        image: ilkothetiger/bgapp-db
+        networks:
+            - app-network
+        environment:
+            MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+        secrets:
+            - db_root_password
+secrets:
+    db_root_password:
+            external: true
+networks:
+    app-network:
