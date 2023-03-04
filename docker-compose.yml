@@ -2,7 +2,7 @@ services:
     web:
         image: ilkothetiger/bgapp-web
         deploy:
-            replicas: 3
+            replicas: 1
         ports:
             - 8080:80
         volumes:
