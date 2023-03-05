@@ -1,24 +1,19 @@
 services:
     web:
         image: ilkothetiger/bgapp-web
-        deploy:
-            replicas: 3
         ports:
-            - 8080:80
+            - 80:80
         volumes:
-            - "/home/vagrant/demo-app/web:/var/www/html:ro"
+            - "/home/jenkins/workspace/Pipeline-BGApp/web:/var/www/html:ro"
         networks:
             - app-network
+        depends_on:
+            - db
     db:
         image: ilkothetiger/bgapp-db
         networks:
             - app-network
         environment:
-            MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
-        secrets:
-            - db_root_password
-secrets:
-    db_root_password:
-            external: true
+            MYSQL_ROOT_PASSWORD: "12345"
 networks:
     app-network:
