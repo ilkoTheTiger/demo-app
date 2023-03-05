@@ -1,16 +1,14 @@
 services:
     web:
-        image: ilkothetiger/bgapp-web
-        deploy:
-            replicas: 1
+        image: ilkothetiger/img-web
         ports:
-            - 8080:80
+            - 80:80
         volumes:
-            - "/home/vagrant/demo-app/web:/var/www/html:ro"
+            - "$(pwd)/web:/var/www/html:ro"
         networks:
             - app-network
     db:
-        image: ilkothetiger/bgapp-db
+        image: ilkothetiger/img-db
         networks:
             - app-network
         environment:
