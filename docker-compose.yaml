@@ -1,6 +1,6 @@
 services:
     web:
-        image: ilkothetiger/bgapp-web
+        image: img-web
         ports:
             - 80:80
         volumes:
@@ -10,7 +10,7 @@ services:
         depends_on:
             - db
     db:
-        image: ilkothetiger/bgapp-db
+        image: img-db
         networks:
             - appnet
         environment:
