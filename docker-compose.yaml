@@ -6,14 +6,14 @@ services:
         volumes:
             - "/home/jenkins/workspace/Pipeline-BGApp/web:/var/www/html:ro"
         networks:
-            - app-network
+            - appnet
         depends_on:
             - db
     db:
         image: ilkothetiger/bgapp-db
         networks:
-            - app-network
+            - appnet
         environment:
             MYSQL_ROOT_PASSWORD: "12345"
 networks:
-    app-network:
+    appnet:
