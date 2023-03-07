@@ -53,7 +53,7 @@ peline
                     sh 'echo $(curl --write-out "%{http_code}" --silent --output /dev/null http://localhost:8080) | grep 200 || true'
                     
                     echo 'Test #2 - Sofia Population Appears'
-                    sh "curl --silent --data http://localhost:8080 | grep 1236047 || true"         
+                    sh "curl --silent --data http://localhost:8080 | grep 1236047"         
                 }
             }
         }
