@@ -6,7 +6,7 @@ services:
         ports:
             - 8080:80
         volumes:
-            - "web:/var/www/html:ro"
+            - "/home/jenkins/workspace/Pipeline-BGApp/web:/var/www/html:ro"
         networks:
             - appnet
         depends_on:
