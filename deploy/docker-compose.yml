@@ -1,14 +1,14 @@
 services:
     web:
-        image: img-web
+        image: ilkothetiger/web
         ports:
             - 80:80
         volumes:
-            - "$(pwd)/Pipeline-BGApp//web:/var/www/html:ro"
+            - "$(pwd)/Pipeline-BGApp/web:/var/www/html:ro"
         networks:
             - appnet
     db:
-        image: img-db
+        image: ilkothetiger/db
         networks:
             - appnet
         environment:
