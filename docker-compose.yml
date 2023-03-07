@@ -4,7 +4,7 @@ services:
         ports:
             - 80:80
         volumes:
-            - "$(pwd)Pipeline-BGApp//web:/var/www/html:ro"
+            - "$(pwd)/Pipeline-BGApp//web:/var/www/html:ro"
         networks:
             - appnet
     db:
