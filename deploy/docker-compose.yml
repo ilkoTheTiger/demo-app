@@ -1,20 +1,14 @@
 services:
     web:
-        build:
-            context: .
-            dockerfile: Dockerfile.web
+        image: img-web
         ports:
-            - 8080:80
+            - 80:80
         volumes:
             - "$(pwd)/Pipeline-BGApp//web:/var/www/html:ro"
         networks:
             - appnet
-        depends_on:
-            - db
     db:
-        build:
-            context: .
-            dockerfile: Dockerfile.db
+        image: img-db
         networks:
             - appnet
         environment:
