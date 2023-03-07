@@ -40,6 +40,7 @@ peline
             steps
             {
                 sh 'docker container rm -f deploy-web-1 deploy-db-1 || true'
+                sh 'docker volume prune -f'
                 sh 'docker compose up -d'
             }
         }
@@ -71,6 +72,7 @@ peline
             steps
             {
                 sh 'docker container rm -f pipeline-bgapp-web-1 pipeline-bgapp-db-1 || true'
+                sh 'docker volume prune -f'
             }
         }
         stage('Login')
