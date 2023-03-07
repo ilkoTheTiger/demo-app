@@ -56,7 +56,13 @@ peline
                     sh "curl --silent http://localhost:8080 | grep София || true"  
                     
                     echo 'Test #3 - Sofia Population Appears'
-                    sh "sleep 10 && curl --silent http://192.168.99.102:8080 | grep 1236047"         
+                    sh "sleep 10 && curl --silent http://192.168.99.102:8080 | grep 1236047"
+
+                    echo 'Test #4 - Check if Plovdiv Appears'
+                    sh "curl --silent http://localhost:8080 | grep Пловдив || true"
+
+                    echo 'Test #5 - Plovdiv Population Appears'
+                    sh "sleep 10 && curl --silent http://localhost:8080 | grep 343424 || true"          
                 }
             }
         }
