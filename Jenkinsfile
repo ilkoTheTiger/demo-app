@@ -62,7 +62,7 @@ peline
                     sh "curl --silent http://localhost:8080 | grep Пловдив || true"
 
                     echo 'Test #5 - Plovdiv Population Appears'
-                    sh "sleep 10 && curl --silent http://localhost:8080 | grep 343424 || true"          
+                    sh "curl --silent http://localhost:8080 | grep 343424 || true"          
                 }
             }
         }
