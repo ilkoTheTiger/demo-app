@@ -1,14 +1,14 @@
 services:
     web:
-        image: ilkothetiger/web
+        image: ilkothetiger/bgapp-web
         ports:
             - 80:80
         volumes:
-            - "$(pwd)/Pipeline-BGApp/web:/var/www/html:ro"
+            - "/home/jenkins/workspace/Pipeline-BGApp/web:/var/www/html:ro"
         networks:
             - appnet
     db:
-        image: ilkothetiger/db
+        image: ilkothetiger/bgapp-db
         networks:
             - appnet
         environment:
