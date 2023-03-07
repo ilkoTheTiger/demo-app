@@ -22,7 +22,7 @@ peline
             steps
             {
                 sh '''
-                docker network rm appnet || true
+                docker network rm appnet pipeline-bgapp_appnet deploy_appnet || true
                 docker network ls | grep appnet || docker network create appnet
                 '''
             }
