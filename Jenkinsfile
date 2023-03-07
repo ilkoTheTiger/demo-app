@@ -51,8 +51,11 @@ peline
                 {
                     echo 'Test #1 - Reachability'
                     sh 'echo $(curl --write-out "%{http_code}" --silent --output /dev/null http://localhost:8080) | grep 200 || true'
+
+                    echo 'Test #2 - Check if Sofia Appears'
+                    sh "curl --silent http://localhost:8080 | grep София || true"  
                     
-                    echo 'Test #2 - Sofia Population Appears'
+                    echo 'Test #3 - Sofia Population Appears'
                     sh "sleep 10 && curl --silent http://192.168.99.102:8080 | grep 1236047"         
                 }
             }
