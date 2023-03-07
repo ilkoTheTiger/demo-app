@@ -1,22 +1,17 @@
 services:
     web:
-        image: ilkothetiger/img-web
+        image: img-web
         ports:
             - 80:80
         volumes:
-            - "$(pwd)/web:/var/www/html:ro"
+            - "$(pwd)Pipeline-BGApp//web:/var/www/html:ro"
         networks:
-            - app-network
+            - appnet
     db:
-        image: ilkothetiger/img-db
+        image: img-db
         networks:
-            - app-network
+            - appnet
         environment:
-            MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
-        secrets:
-            - db_root_password
-secrets:
-    db_root_password:
-            external: true
+            MYSQL_ROOT_PASSWORD: "12345"
 networks:
-    app-network:
+    appnet:
