@@ -75,7 +75,7 @@ peline
         {
             steps
             {
-                sh 'docker image rm ilkothetiger/bgapp-web ilkothetiger/bgapp-db'
+                sh 'docker image rm ilkothetiger/bgapp-web ilkothetiger/bgapp-db || true'
                 sh 'docker image tag pipeline-bgapp-web ilkothetiger/bgapp-web'
                 sh 'docker image tag pipeline-bgapp-db ilkothetiger/bgapp-db'
                 sh 'docker push ilkothetiger/bgapp-web'
